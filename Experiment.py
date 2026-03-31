@@ -50,10 +50,9 @@ COMMON_PARAMS = dict(
 # ============================================================
 
 def average_over_repetitions(n_repetitions=5, smoothing_window=9, **kwargs):
-    """
-    Runs multiple repetitions of DQN and averages the learning curves.
-    Same structure as Assignment 1 average_over_repetitions().
-    """
+    #Runs multiple repetitions of DQN and averages the learning curves.
+    #close structure with A1
+
     returns_over_repetitions = []
     now = time.time()
 
@@ -77,7 +76,6 @@ def average_over_repetitions(n_repetitions=5, smoothing_window=9, **kwargs):
 # ============================================================
 
 def task_2_1(baseline_steps, baseline_returns):
-
     #Runs naive DQN (no TN, no ER)
     #Returns the curve and steps for reuse in Task 2.4
 
@@ -105,7 +103,6 @@ def task_2_1(baseline_steps, baseline_returns):
 # ============================================================
 
 def task_2_2(baseline_steps, baseline_returns):
-
     #Task 2.2, Ablation study
     
     print('\nTask 2.2: Ablation Study')
@@ -144,7 +141,7 @@ def task_2_2(baseline_steps, baseline_returns):
     Plot.ax.plot(baseline_steps, baseline_returns, '--', color='black', label='Baseline')
     Plot.save('ablation_network.png')
 
-    # --- Update-to-data ratio ---
+    # --- Update frequency ---
     print('  Ablation: update frequency')
     Plot = LearningCurvePlot(title='Ablation: Update Frequency')
     Plot.set_ylim(0, 520)
@@ -174,8 +171,8 @@ def task_2_2(baseline_steps, baseline_returns):
             use_replay_buffer  = True,
             **{**COMMON_PARAMS,
                'epsilon'      : eps,
-               'epsilon_min'  : eps,   # keep fixed throughout
-               'epsilon_decay': 1.0}   # no decay
+               'epsilon_min'  : eps,   
+               'epsilon_decay': 1.0}
         )
         Plot.add_curve(steps, curve, label=f'epsilon = {eps}')
     Plot.ax.plot(baseline_steps, baseline_returns, '--', color='black', label='Baseline')
@@ -188,7 +185,7 @@ def task_2_2(baseline_steps, baseline_returns):
 
 def task_2_4(baseline_steps, baseline_returns, naive_curve=None, naive_steps=None):
     #Task 2.4, configurations comparison
-    #If naive_curve is provided (from task_2_1), it is reused directly.
+    #If naive_curve is provided (from task_2_1), it iss reused .
 
     print('\nTask 2.4: All 4 configurations')
 
