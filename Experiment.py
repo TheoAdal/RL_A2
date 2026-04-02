@@ -38,7 +38,7 @@ COMMON_PARAMS = dict(
     num_envs           = NUM_ENVS,
 )
 
-# Params specifically for task 2.4 using per-episode decay
+#Params specifically for task 2.4
 TASK24_PARAMS = dict(
     n_steps            = N_STEPS,
     eval_interval      = EVAL_INTERVAL,
@@ -56,9 +56,9 @@ TASK24_PARAMS = dict(
 )
 
 
-# ============================================================
+
 # HELPER
-# ============================================================
+
 
 def average_over_repetitions(n_repetitions=5, smoothing_window=9, **kwargs):
     returns_over_repetitions = []
@@ -79,9 +79,9 @@ def average_over_repetitions(n_repetitions=5, smoothing_window=9, **kwargs):
     return learning_curve, steps
 
 
-# ============================================================
+
 # PER-EPISODE EPSILON DECAY — used for task 2.4
-# ============================================================
+
 
 def dqn_per_episode_decay(n_steps=1_000_000, eval_interval=2500, n_eval_episodes=5,
         learning_rate=1e-3, gamma=0.99, epsilon=1.0, epsilon_min=0.01,
@@ -149,9 +149,9 @@ def average_over_repetitions_per_episode(n_repetitions=5, smoothing_window=9, **
     return learning_curve, steps
 
 
-# ============================================================
+
 # TASK 2.1
-# ============================================================
+
 
 def task_2_1(baseline_steps, baseline_returns):
     print('Task 2.1: Naive DQN')
@@ -173,9 +173,9 @@ def task_2_1(baseline_steps, baseline_returns):
     return naive_curve, naive_steps
 
 
-# ============================================================
+
 # TASK 2.2
-# ============================================================
+
 
 def task_2_2(baseline_steps, baseline_returns):
     print('\nTask 2.2: Ablation Study')
@@ -237,9 +237,9 @@ def task_2_2(baseline_steps, baseline_returns):
     Plot.save('ablation_epsilon.png')
 
 
-# ============================================================
+
 # TASK 2.4
-# ============================================================
+
 
 def task_2_4(baseline_steps, baseline_returns):
     print('\nTask 2.4: All 4 configurations')

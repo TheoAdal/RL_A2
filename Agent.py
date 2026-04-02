@@ -87,7 +87,6 @@ class DQNAgent:
             return q_values.argmax().item()
 
     def store(self, state, action, reward, next_state, done):
-
         #Store a single transition and decay epsilon
         #Called once per environment per step in the vectorized loop
         
@@ -131,7 +130,6 @@ class DQNAgent:
             self.target_network.load_state_dict(self.q_network.state_dict())
 
     def update(self, state, action, reward, next_state, done):
-
         #Single-transition update for the naive agent
         #Used when use_replay_buffer=FALSE
 
