@@ -75,6 +75,7 @@ def dqn(n_steps=100000,
                 )
 
             agent.update_network(step)
+            agent.epsilon = max(agent.epsilon_min, agent.epsilon * agent.epsilon_decay)
             states  = next_states
             step   += num_envs
 

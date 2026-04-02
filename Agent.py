@@ -91,8 +91,8 @@ class DQNAgent:
         #Store a single transition and decay epsilon
         #Called once per environment per step in the vectorized loop
         
-        if self.epsilon > self.epsilon_min:
-            self.epsilon *= self.epsilon_decay
+        #if self.epsilon > self.epsilon_min:
+            #elf.epsilon *= self.epsilon_decay
 
         if self.use_replay_buffer:
             self.replay_buffer.push(state, action, reward, next_state, float(done))
